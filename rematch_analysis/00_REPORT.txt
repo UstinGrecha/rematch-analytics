@@ -1,0 +1,49 @@
+
+===========================================
+  REMATCH (AppID: 2138720) - Analytics Dump
+===========================================
+  Generated: 2026-06-24 17:00 UTC
+
+  REVIEWS
+    Total fetched:       49,735
+    Positive:            34,069  (68.5%)
+    Negative:            15,666  (31.5%)
+    Steam Purchase:      36,932
+    Free Copies:          2,728
+    Refunded:               410
+    Steam Deck:             227
+    Early Access:             0
+    Avg Playtime:      6526 min (108.8 h)
+
+  LIVE PLAYERS (snapshot): 5,425
+
+  ACHIEVEMENTS: 37
+    Most unlocked:  Save_01 (88.9%)
+    Rarest:         Rematch_AllTrophies (4.5%)
+
+  TOP LANGUAGES:
+    english         20,456 reviews  (69.1% positive)
+    russian          6,942 reviews  (60.6% positive)
+    brazilian        4,633 reviews  (78.7% positive)
+    spanish          4,087 reviews  (68.1% positive)
+    turkish          3,485 reviews  (72.0% positive)
+
+  FILES:
+    01_reviews_full.csv                           18,145,343 B
+    02_reviews_by_language.csv                       1,074 B
+    03_playtime_distribution.csv                       131 B
+    04_gpu_top20.csv                                   671 B
+    05_cpu_top20.csv                                   856 B
+    06_os_distribution.csv                             303 B
+    07_ram_distribution.csv                             85 B
+    08_achievements.csv                                702 B
+    09_reviews_over_time_weekly.csv                    800 B
+    10_reactions.csv                                   291 B
+    11_news.csv                                      1,489 B
+    raw_json\01_current_players.json                    70 B
+    raw_json\02_achievements.json                    2,974 B
+    raw_json\03_store_details.json                  25,016 B
+    raw_json\04_news.json                           14,845 B
+    raw_json\06_review_summaries_by_language.json    2,854 B
+
+===========================================

@@ -1,0 +1,122 @@
+{
+  "english": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 14128,
+    "total_negative": 6331,
+    "total_reviews": 20459
+  },
+  "russian": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 4208,
+    "total_negative": 2734,
+    "total_reviews": 6942
+  },
+  "brazilian": {
+    "num_reviews": 1,
+    "review_score": 6,
+    "review_score_desc": "Mostly Positive",
+    "total_positive": 3647,
+    "total_negative": 988,
+    "total_reviews": 4635
+  },
+  "turkish": {
+    "num_reviews": 1,
+    "review_score": 6,
+    "review_score_desc": "Mostly Positive",
+    "total_positive": 2507,
+    "total_negative": 977,
+    "total_reviews": 3484
+  },
+  "spanish": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 2784,
+    "total_negative": 1303,
+    "total_reviews": 4087
+  },
+  "french": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 1582,
+    "total_negative": 898,
+    "total_reviews": 2480
+  },
+  "german": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 1081,
+    "total_negative": 502,
+    "total_reviews": 1583
+  },
+  "polish": {
+    "num_reviews": 1,
+    "review_score": 6,
+    "review_score_desc": "Mostly Positive",
+    "total_positive": 983,
+    "total_negative": 311,
+    "total_reviews": 1294
+  },
+  "latam": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 526,
+    "total_negative": 287,
+    "total_reviews": 813
+  },
+  "schinese": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 341,
+    "total_negative": 294,
+    "total_reviews": 635
+  },
+  "italian": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 630,
+    "total_negative": 271,
+    "total_reviews": 901
+  },
+  "koreana": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 270,
+    "total_negative": 171,
+    "total_reviews": 441
+  },
+  "japanese": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 210,
+    "total_negative": 94,
+    "total_reviews": 304
+  },
+  "tchinese": {
+    "num_reviews": 1,
+    "review_score": 5,
+    "review_score_desc": "Mixed",
+    "total_positive": 123,
+    "total_negative": 107,
+    "total_reviews": 230
+  },
+  "portuguese": {
+    "num_reviews": 1,
+    "review_score": 6,
+    "review_score_desc": "Mostly Positive",
+    "total_positive": 292,
+    "total_negative": 87,
+    "total_reviews": 379
+  }
+}
