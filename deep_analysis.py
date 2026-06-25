@@ -58,23 +58,26 @@ def normal_cdf(x):
     return 1 - (1 / math.sqrt(2 * math.pi)) * math.exp(-x*x/2) * c
 
 def chi2_contingency(observed):
-    """chi-square test for independence on 2x2 table"""
+    """chi-square test for independence on R x C table"""
     obs = np.array(observed, dtype=float)
     row_sums = obs.sum(axis=1)
     col_sums = obs.sum(axis=0)
     total = obs.sum()
     expected = np.outer(row_sums, col_sums) / total
-    chi2 = ((obs - expected) ** 2 / expected).sum()
-    # 1 degree of freedom for 2x2
-    p = 1 - chi2_cdf(chi2, 1)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        chi2 = np.nansum((obs - expected) ** 2 / expected)
+    df = (obs.shape[0] - 1) * (obs.shape[1] - 1)
+    p = 1 - chi2_cdf(chi2, df)
     return chi2, p
 
 def chi2_cdf(x, k):
-    """chi-square CDF for k degrees of freedom"""
+    """chi-square CDF via Wilson-Hilferty normal approximation"""
     if x <= 0:
-        return 0
-    # regularized lower incomplete gamma function (series approximation)
-    return gamma_inc_lower(k/2, x/2) / math.gamma(k/2)
+        return 0.0
+    if k <= 0:
+        return 0.0
+    z = ((x / k) ** (1 / 3) - (1 - 2 / (9 * k))) / math.sqrt(2 / (9 * k))
+    return normal_cdf(z)
 
 def gamma_inc_lower(a, x, eps=1e-10, max_iter=200):
     """lower incomplete gamma function (series)"""
@@ -451,7 +454,6 @@ for r in reviews:
             ram = int(hw.get("system_ram", 0))
             if 0 < ram < 262144:
                 ram_vals.append(ram)
-            ram_vals.append(ram)
         except:
             pass
 ram_arr = np.array(ram_vals)
@@ -603,7 +605,7 @@ for tid, metric, comp, val_a, val_b, stat, p_val, effect, interp in results:
     stat_s = f"{stat:.3f}" if isinstance(stat, float) else str(stat)
     p_s = f"{p_val:.6f}" if isinstance(p_val, float) else str(p_val)
     eff_s = f"{effect:.4f}" if isinstance(effect, float) else str(effect)
-    if isinstance(val_a, float) and metric in ("Positive rate", "Language vs Sentiment"):
+    if isinstance(val_a, float) and metric == "Positive rate":
         val_a_s = f"{val_a*100:.1f}%"
     elif isinstance(val_a, float):
         val_a_s = f"{val_a:.1f}"
@@ -623,12 +625,18 @@ report += """
 # Generate insights
 insights = []
 
-# Insight 1: Playtime difference
-if abs(np.mean(pt_pos) - np.mean(pt_neg)) > 60:
+# Insight 1: Total playtime (A1) — statistically significant but negligible effect
+if p_val < 0.05 and abs(d) >= 0.2:
     if np.mean(pt_pos) > np.mean(pt_neg):
-        insights.append(f"  * Positive reviewers have SIGNIFICANTLY higher playtime ({np.mean(pt_pos)/60:.1f}h vs {np.mean(pt_neg)/60:.1f}h).\n    Players who spend more time tend to leave positive reviews — the game gets better with playtime.")
+        insights.append(f"  * Positive reviewers have higher total playtime ({np.mean(pt_pos)/60:.1f}h vs {np.mean(pt_neg)/60:.1f}h, d={d:.3f}).")
     else:
-        insights.append(f"  * Negative reviewers have higher playtime ({np.mean(pt_neg)/60:.1f}h vs {np.mean(pt_pos)/60:.1f}h).\n    This suggests experienced players are dissatisfied, possibly with endgame balance or lack of content.")
+        insights.append(f"  * Negative reviewers have higher total playtime ({np.mean(pt_neg)/60:.1f}h vs {np.mean(pt_pos)/60:.1f}h, d={d:.3f}).")
+elif p_val < 0.05:
+    insights.append(f"  * Total playtime differs slightly between positive and negative reviewers ({np.mean(pt_pos)/60:.1f}h vs {np.mean(pt_neg)/60:.1f}h), but effect size is negligible (d={d:.3f}).")
+
+# Insight 1b: Playtime at review (A7) — negative reviewers write later
+if p7 < 0.05:
+    insights.append(f"  * Negative reviewers write reviews later in their journey ({np.mean(par_neg)/60:.1f}h vs {np.mean(par_pos)/60:.1f}h at review, d={abs(d7):.3f}).\n    Dissatisfaction often comes after invested time, not only at first launch.")
 
 # Insight 2: Purchase type
 if p_val2 < 0.05:
@@ -681,13 +689,14 @@ if easy_ach:
     insights.append(f"  * {len(easy_ach)} achievements unlocked by >80% of players ({', '.join(a['name'] for a in easy_ach[:3])}...).")
 if hard_ach:
     insights.append(f"  * {len(hard_ach)} achievements unlocked by <10% of players ({', '.join(a['name'] for a in hard_ach[:3])}...).")
-insights.append(f"  * Only {ach_by_pct[0]['percent']}% of players have all achievements — low completion rate typical for live-service games.")
+rarest = ach_by_pct[0]
+insights.append(f"  * Only {rarest['percent']}% unlocked '{rarest['name']}' (all trophies) — low completion rate typical for live-service games.")
 
 # Insight 8: GPU distribution
 if gpu_counter:
     top_gpu_name = gpu_counter.most_common(1)[0][0]
     top_gpu_pct = gpu_counter.most_common(1)[0][1] / total_gpu * 100
-    insights.append(f"  * Most common GPU: {top_gpu_name} ({top_gpu_pct:.1f}% of reviewers).")
+    insights.append(f"  * Most common GPU among reviewers with HW data: {top_gpu_name} ({top_gpu_pct:.1f}%, n={total_gpu}).")
 
 for ins in insights:
     report += ins + "\n"

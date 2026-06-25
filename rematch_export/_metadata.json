@@ -1,0 +1,288 @@
+{
+  "app_id": 2138720,
+  "app_name": "REMATCH",
+  "export_time": "2026-06-24T17:00:31.894366Z",
+  "total_reviews_fetched": 49735,
+  "files": [
+    {
+      "file": "01_current_players.json",
+      "bytes": 70,
+      "kb": 0.1
+    },
+    {
+      "file": "02_achievements.json",
+      "bytes": 2974,
+      "kb": 2.9
+    },
+    {
+      "file": "03_store_details.json",
+      "bytes": 25016,
+      "kb": 24.4
+    },
+    {
+      "file": "04_news.json",
+      "bytes": 14845,
+      "kb": 14.5
+    },
+    {
+      "file": "05_all_reviews_full.json",
+      "bytes": 64332825,
+      "kb": 62825.0
+    },
+    {
+      "file": "05_all_reviews_meta.json",
+      "bytes": 76,
+      "kb": 0.1
+    },
+    {
+      "file": "06_review_summaries_by_language.json",
+      "bytes": 2854,
+      "kb": 2.8
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0001_total1999.json",
+      "bytes": 41,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0002_total3999.json",
+      "bytes": 41,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0003_total5997.json",
+      "bytes": 41,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0004_total7997.json",
+      "bytes": 41,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0005_total9997.json",
+      "bytes": 42,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0006_total11997.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0007_total13997.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0008_total15997.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0009_total17996.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0010_total19995.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0011_total21995.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0012_total23995.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0013_total25995.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0014_total27994.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0015_total29993.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0016_total31993.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0017_total33993.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0018_total35992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0019_total37992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0020_total39992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0021_total41992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0022_total43992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0023_total45992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\checkpoint_0024_total47992.json",
+      "bytes": 43,
+      "kb": 0.0
+    },
+    {
+      "file": "reviews_chunks\\chunk_0001_pages1-20.json",
+      "bytes": 2586539,
+      "kb": 2525.9
+    },
+    {
+      "file": "reviews_chunks\\chunk_0002_pages21-40.json",
+      "bytes": 2598037,
+      "kb": 2537.1
+    },
+    {
+      "file": "reviews_chunks\\chunk_0003_pages41-60.json",
+      "bytes": 2548554,
+      "kb": 2488.8
+    },
+    {
+      "file": "reviews_chunks\\chunk_0004_pages61-80.json",
+      "bytes": 2545642,
+      "kb": 2486.0
+    },
+    {
+      "file": "reviews_chunks\\chunk_0005_pages81-100.json",
+      "bytes": 2364827,
+      "kb": 2309.4
+    },
+    {
+      "file": "reviews_chunks\\chunk_0006_pages101-120.json",
+      "bytes": 2640135,
+      "kb": 2578.3
+    },
+    {
+      "file": "reviews_chunks\\chunk_0007_pages121-140.json",
+      "bytes": 2590146,
+      "kb": 2529.4
+    },
+    {
+      "file": "reviews_chunks\\chunk_0008_pages141-160.json",
+      "bytes": 2661141,
+      "kb": 2598.8
+    },
+    {
+      "file": "reviews_chunks\\chunk_0009_pages161-180.json",
+      "bytes": 2690494,
+      "kb": 2627.4
+    },
+    {
+      "file": "reviews_chunks\\chunk_0010_pages181-200.json",
+      "bytes": 2717481,
+      "kb": 2653.8
+    },
+    {
+      "file": "reviews_chunks\\chunk_0011_pages201-220.json",
+      "bytes": 2612982,
+      "kb": 2551.7
+    },
+    {
+      "file": "reviews_chunks\\chunk_0012_pages221-240.json",
+      "bytes": 2616227,
+      "kb": 2554.9
+    },
+    {
+      "file": "reviews_chunks\\chunk_0013_pages241-260.json",
+      "bytes": 2575697,
+      "kb": 2515.3
+    },
+    {
+      "file": "reviews_chunks\\chunk_0014_pages261-280.json",
+      "bytes": 2563425,
+      "kb": 2503.3
+    },
+    {
+      "file": "reviews_chunks\\chunk_0015_pages281-300.json",
+      "bytes": 2555638,
+      "kb": 2495.7
+    },
+    {
+      "file": "reviews_chunks\\chunk_0016_pages301-320.json",
+      "bytes": 2526274,
+      "kb": 2467.1
+    },
+    {
+      "file": "reviews_chunks\\chunk_0017_pages321-340.json",
+      "bytes": 2502426,
+      "kb": 2443.8
+    },
+    {
+      "file": "reviews_chunks\\chunk_0018_pages341-360.json",
+      "bytes": 2533636,
+      "kb": 2474.3
+    },
+    {
+      "file": "reviews_chunks\\chunk_0019_pages361-380.json",
+      "bytes": 2584542,
+      "kb": 2524.0
+    },
+    {
+      "file": "reviews_chunks\\chunk_0020_pages381-400.json",
+      "bytes": 2584613,
+      "kb": 2524.0
+    },
+    {
+      "file": "reviews_chunks\\chunk_0021_pages401-420.json",
+      "bytes": 2547902,
+      "kb": 2488.2
+    },
+    {
+      "file": "reviews_chunks\\chunk_0022_pages421-440.json",
+      "bytes": 2614437,
+      "kb": 2553.2
+    },
+    {
+      "file": "reviews_chunks\\chunk_0023_pages441-460.json",
+      "bytes": 2622229,
+      "kb": 2560.8
+    },
+    {
+      "file": "reviews_chunks\\chunk_0024_pages461-480.json",
+      "bytes": 2621283,
+      "kb": 2559.8
+    },
+    {
+      "file": "reviews_chunks\\chunk_0025_pages481-499.json",
+      "bytes": 2552555,
+      "kb": 2492.7
+    }
+  ]
+}

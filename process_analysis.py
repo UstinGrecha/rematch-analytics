@@ -180,7 +180,7 @@ with open(csv_path4a, "w", encoding="utf-8", newline="") as f:
     w = csv.writer(f)
     w.writerow(["gpu", "count", "pct"])
     for gpu, cnt in gpu_counter.most_common(20):
-        w.writerow([gpu, cnt, round(cnt/total_hw*100, 1)])
+        w.writerow([gpu, cnt, round(cnt/sum(gpu_counter.values())*100, 1) if gpu_counter else 0])
 log(f"   -> {csv_path4a}")
 
 # CPU top 20
@@ -189,7 +189,7 @@ with open(csv_path4b, "w", encoding="utf-8", newline="") as f:
     w = csv.writer(f)
     w.writerow(["cpu", "count", "pct"])
     for cpu, cnt in cpu_counter.most_common(20):
-        w.writerow([cpu, cnt, round(cnt/total_hw*100, 1)])
+        w.writerow([cpu, cnt, round(cnt/sum(cpu_counter.values())*100, 1) if cpu_counter else 0])
 log(f"   -> {csv_path4b}")
 
 # OS
@@ -273,6 +273,27 @@ with open(csv_path8, "w", encoding="utf-8", newline="") as f:
             n.get("author", ""),
         ])
 log(f"   -> {csv_path8}")
+
+# ─── 9. Early negativity (onboarding) ───
+log("[9/9] Early negativity metrics...")
+early_rows = []
+for label, field, minutes in [
+    ("playtime_at_review <30min", "playtime_at_review", 30),
+    ("playtime_at_review <60min", "playtime_at_review", 60),
+    ("playtime_forever <30min", "playtime_forever", 30),
+    ("playtime_forever <60min", "playtime_forever", 60),
+]:
+    subset = [r for r in reviews if r.get("author", {}).get(field, 0) < minutes]
+    if subset:
+        neg_n = sum(1 for r in subset if not r.get("voted_up"))
+        early_rows.append([label, len(subset), neg_n, round(neg_n / len(subset) * 100, 1)])
+
+csv_path9 = os.path.join(OUTPUT, "12_early_negativity.csv")
+with open(csv_path9, "w", encoding="utf-8", newline="") as f:
+    w = csv.writer(f)
+    w.writerow(["metric", "review_count", "negative_count", "negative_pct"])
+    w.writerows(early_rows)
+log(f"   -> {csv_path9}")
 
 # ─── Final: copy raw JSONs for convenience ───
 log("Copying raw JSON files...")

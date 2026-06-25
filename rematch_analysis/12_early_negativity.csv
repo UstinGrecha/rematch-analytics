@@ -1,0 +1,5 @@
+metric,review_count,negative_count,negative_pct
+playtime_at_review <30min,517,321,62.1
+playtime_at_review <60min,1367,810,59.3
+playtime_forever <30min,299,230,76.9
+playtime_forever <60min,729,546,74.9

@@ -24,6 +24,15 @@ with open("rematch_decline_analysis/hypotheses.csv", encoding="utf-8") as f:
 with open("rematch_decline_analysis/recommendations.csv", encoding="utf-8") as f:
     recs = list(csv.DictReader(f))
 
+early_neg = list(csv.DictReader(open("rematch_analysis/12_early_negativity.csv", encoding="utf-8")))
+def early_metric(key):
+    row = next((r for r in early_neg if key in r["metric"]), None)
+    if not row:
+        return "—", 0
+    return f"{float(row['negative_pct']):.1f}%", int(row["review_count"])
+NEG_FOREVER_30, N_FOREVER_30 = early_metric("playtime_forever <30")
+NEG_AT_REVIEW_30, N_AT_REVIEW_30 = early_metric("playtime_at_review <30")
+
 with open("rematch_decline_analysis/00_DECLINE_REPORT.txt", encoding="utf-8") as f:
     report_text = f.read()
 
@@ -109,7 +118,8 @@ html = f"""<!DOCTYPE html>
     <div class="kpi"><div class="value blue">r=-0.486</div><div class="label">Корреляция времени с отзывами</div></div>
     <div class="kpi"><div class="value blue">r=+0.415</div><div class="label">Корреляция времени с тональностью</div></div>
     <div class="kpi"><div class="value orange">55.7→39.1ч</div><div class="label">Медианный плейтайм (ранние vs поздние)</div></div>
-    <div class="kpi"><div class="value red">76.9%</div><div class="label">Негатив в первые 30 минут</div></div>
+    <div class="kpi"><div class="value red">{NEG_FOREVER_30}</div><div class="label">Негатив при пл. &lt;30 мин (n={N_FOREVER_30})</div></div>
+    <div class="kpi"><div class="value orange">{NEG_AT_REVIEW_30}</div><div class="label">Негатив при отзыве &lt;30 мин (n={N_AT_REVIEW_30})</div></div>
   </div>
 
   <h2>Графики</h2>

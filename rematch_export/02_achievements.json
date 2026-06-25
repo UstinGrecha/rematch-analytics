@@ -1,0 +1,154 @@
+{
+  "achievementpercentages": {
+    "achievements": [
+      {
+        "name": "Save_01",
+        "percent": "88.9"
+      },
+      {
+        "name": "Goal_01",
+        "percent": "87.5"
+      },
+      {
+        "name": "Customization",
+        "percent": "86.6"
+      },
+      {
+        "name": "Match_FirstWin",
+        "percent": "86.1"
+      },
+      {
+        "name": "Assist_01",
+        "percent": "85.9"
+      },
+      {
+        "name": "Match_CleanSheet",
+        "percent": "76.6"
+      },
+      {
+        "name": "Party",
+        "percent": "74.2"
+      },
+      {
+        "name": "Assist_Equalizer",
+        "percent": "72.5"
+      },
+      {
+        "name": "Match_MVP",
+        "percent": "70.6"
+      },
+      {
+        "name": "Polyvalent",
+        "percent": "68.6"
+      },
+      {
+        "name": "Prologue",
+        "percent": "64.8"
+      },
+      {
+        "name": "Shop_01",
+        "percent": "61.7"
+      },
+      {
+        "name": "Save_Overtime",
+        "percent": "57.2"
+      },
+      {
+        "name": "Match_Ranked",
+        "percent": "56.0"
+      },
+      {
+        "name": "Goal_HatTrick",
+        "percent": "55.7"
+      },
+      {
+        "name": "Save_30",
+        "percent": "54.5"
+      },
+      {
+        "name": "Marathon",
+        "percent": "54.1"
+      },
+      {
+        "name": "Match_ConsecutiveWins",
+        "percent": "53.6"
+      },
+      {
+        "name": "Progression_10",
+        "percent": "52.5"
+      },
+      {
+        "name": "Goal_VolleyShoot",
+        "percent": "52.5"
+      },
+      {
+        "name": "Assist_Rebound",
+        "percent": "51.4"
+      },
+      {
+        "name": "Goal_Pinball",
+        "percent": "51.0"
+      },
+      {
+        "name": "Workshop_Intro",
+        "percent": "50.5"
+      },
+      {
+        "name": "Goal_30",
+        "percent": "47.9"
+      },
+      {
+        "name": "Assist_Goalkeeper",
+        "percent": "41.3"
+      },
+      {
+        "name": "Assist_30",
+        "percent": "41.2"
+      },
+      {
+        "name": "Assist_NoLook",
+        "percent": "39.2"
+      },
+      {
+        "name": "Match_Wins",
+        "percent": "37.8"
+      },
+      {
+        "name": "Shop_15",
+        "percent": "34.3"
+      },
+      {
+        "name": "Save_100",
+        "percent": "30.1"
+      },
+      {
+        "name": "Progression_30",
+        "percent": "28.7"
+      },
+      {
+        "name": "Goal_100",
+        "percent": "24.2"
+      },
+      {
+        "name": "UltraTrail",
+        "percent": "24.0"
+      },
+      {
+        "name": "Assist_100",
+        "percent": "18.1"
+      },
+      {
+        "name": "Workshops_Bronze",
+        "percent": "16.8"
+      },
+      {
+        "name": "Workshops_Gold",
+        "percent": "10.8"
+      },
+      {
+        "name": "Rematch_AllTrophies",
+        "percent": "4.5"
+      }
+    ]
+  }
+}

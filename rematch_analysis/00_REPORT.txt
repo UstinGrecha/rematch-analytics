@@ -2,7 +2,7 @@
 ===========================================
   REMATCH (AppID: 2138720) - Analytics Dump
 ===========================================
-  Generated: 2026-06-24 17:00 UTC
+  Generated: 2026-06-25 01:34 UTC
 
   REVIEWS
     Total fetched:       49,735
@@ -29,6 +29,7 @@
     turkish          3,485 reviews  (72.0% positive)
 
   FILES:
+    00_REPORT.txt                                    1,996 B
     01_reviews_full.csv                           18,145,343 B
     02_reviews_by_language.csv                       1,074 B
     03_playtime_distribution.csv                       131 B
@@ -40,6 +41,7 @@
     09_reviews_over_time_weekly.csv                    800 B
     10_reactions.csv                                   291 B
     11_news.csv                                      1,489 B
+    12_early_negativity.csv                            206 B
     raw_json\01_current_players.json                    70 B
     raw_json\02_achievements.json                    2,974 B
     raw_json\03_store_details.json                  25,016 B

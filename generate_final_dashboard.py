@@ -25,6 +25,15 @@ with open("rematch_extra_analysis/player_segments.csv", encoding="utf-8") as f:
 with open("rematch_extra_analysis/reviews_by_hour.csv", encoding="utf-8") as f:
     hours_data = list(csv.DictReader(f))
 
+early_neg = list(csv.DictReader(open("rematch_analysis/12_early_negativity.csv", encoding="utf-8")))
+def early_metric(key):
+    row = next((r for r in early_neg if key in r["metric"]), None)
+    if not row:
+        return "—", 0
+    return f"{float(row['negative_pct']):.1f}%", int(row["review_count"])
+NEG_FOREVER_30, N_FOREVER_30 = early_metric("playtime_forever <30")
+NEG_AT_REVIEW_30, N_AT_REVIEW_30 = early_metric("playtime_at_review <30")
+
 charts = {}
 for fname in ["01_features_negativity.png", "02_reviews_by_hour.png",
                "03_survival_curve.png", "04_player_segments.png",
@@ -125,7 +134,8 @@ html = f"""<!DOCTYPE html>
   <h2>Ключевые метрики</h2>
   <div class="kpi-grid">
     <div class="kpi"><div class="value green">68.5%</div><div class="label">Положительных отзывов</div></div>
-    <div class="kpi"><div class="value red">76.9%</div><div class="label">Негатив в первые 30 мин</div></div>
+    <div class="kpi"><div class="value red">{NEG_FOREVER_30}</div><div class="label">Негатив при пл. &lt;30 мин (n={N_FOREVER_30})</div></div>
+    <div class="kpi"><div class="value orange">{NEG_AT_REVIEW_30}</div><div class="label">Негатив при отзыве &lt;30 мин (n={N_AT_REVIEW_30})</div></div>
     <div class="kpi"><div class="value blue">91 374</div><div class="label">Пик онлайна (июнь 2025)</div></div>
     <div class="kpi"><div class="value red">6 201</div><div class="label">Текущий онлайн (июнь 2026)</div></div>
     <div class="kpi"><div class="value red">-93%</div><div class="label">Падение онлайна за 12 мес</div></div>

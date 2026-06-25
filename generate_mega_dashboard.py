@@ -25,7 +25,17 @@ gpu = read_csv("rematch_analysis/04_gpu_top20.csv")
 os_dist = read_csv("rematch_analysis/06_os_distribution.csv")
 achieves = read_csv("rematch_analysis/08_achievements.csv")
 weekly = read_csv("rematch_analysis/09_reviews_over_time_weekly.csv")
+early_neg = read_csv("rematch_analysis/12_early_negativity.csv")
 ab_csv = read_csv("rematch_deep_analysis/ab_test_results.csv")
+
+def early_metric(key):
+    row = next((r for r in early_neg if key in r["metric"]), None)
+    if not row:
+        return "—", 0
+    return f"{float(row['negative_pct']):.1f}%", int(row["review_count"])
+
+NEG_FOREVER_30, N_FOREVER_30 = early_metric("playtime_forever <30")
+NEG_AT_REVIEW_30, N_AT_REVIEW_30 = early_metric("playtime_at_review <30")
 
 # 2. Гипотезы и рекомендации (decline)
 hyps = read_csv("rematch_decline_analysis/hypotheses.csv")
@@ -279,7 +289,8 @@ html = f"""<!DOCTYPE html>
     <div class="kpi"><div class="v b">91 374</div><div class="l">Пик онлайна (06/2025)</div></div>
     <div class="kpi"><div class="v r">6 201</div><div class="l">Текущий онлайн (06/2026)</div></div>
     <div class="kpi"><div class="v r">-93%</div><div class="l">Падение онлайна за год</div></div>
-    <div class="kpi"><div class="v r">76.9%</div><div class="l">Негатив в первые 30 мин</div></div>
+    <div class="kpi"><div class="v r">{NEG_FOREVER_30}</div><div class="l">Негатив при плейтайме &lt;30 мин (n={N_FOREVER_30})</div></div>
+    <div class="kpi"><div class="v o">{NEG_AT_REVIEW_30}</div><div class="l">Негатив при отзыве &lt;30 мин (n={N_AT_REVIEW_30})</div></div>
     <div class="kpi"><div class="v o">50%</div><div class="l">Уходят до 10-20ч</div></div>
   </div>
 
@@ -362,7 +373,7 @@ html = f"""<!DOCTYPE html>
   <h2 id="insights">Ключевые выводы</h2>
   <ul class="insights">
     <li><b>Онлайн упал на 93%</b> за 12 месяцев: с 91 374 до 6 201 среднего онлайна — критическая ситуация</li>
-    <li><b>76.9% негатива в первые 30 минут</b> — игра проваливает онбординг, игроки не доходят до интересного контента</li>
+    <li><b>{NEG_FOREVER_30} негатива при плейтайме &lt;30 мин</b> (n={N_FOREVER_30}) — среди «быстрых уходов» игра почти не удерживает; при отзыве &lt;30 мин: {NEG_AT_REVIEW_30} (n={N_AT_REVIEW_30})</li>
     <li><b>50% игроков уходят до 10-20 часов</b> — критическое окно удержания не используется</li>
     <li><b>Читеры (72.7% негатива)</b> — главная токсичная тема. Без античита игра теряет аудиторию</li>
     <li><b>Монетизация (70.5%)</b> и <b>Сервера (66.3%)</b> — вторые по негативу. Adidas-коллабы раздражают</li>

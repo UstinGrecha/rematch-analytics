@@ -24,7 +24,11 @@ CHARTS = OUT / "charts"
 CHARTS.mkdir(exist_ok=True)
 
 def log(msg):
-    print(f"  {msg}")
+    text = f"  {msg}"
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        print(text.encode("cp1251", errors="replace").decode("cp1251"))
 
 def read_csv(path):
     with open(path, encoding="utf-8") as f:
@@ -511,8 +515,26 @@ except Exception as e:
             f.write(html_data)
         # simple parse - look for numbers in chart data
         log(f"  HTML сохранен, ищем данные...")
-        # match patterns like [new Date("2025-06"), 1234]
+        # match patterns like [new Date("2025-06"), 1234] or monthly table rows
         matches = re.findall(r'new Date\("(\d{4}-\d{2})"\),\s*(\d+)', html_data)
+        if not matches:
+            matches = re.findall(
+                r'month-cell left">\s*([A-Za-z]+ \d{4})\s*</td>\s*<td class="right num-f">([\d.]+)',
+                html_data,
+            )
+            if matches:
+                dates_chart = [datetime.strptime(m[0], "%B %Y") for m in reversed(matches)]
+                values_chart = [float(m[1]) for m in reversed(matches)]
+                fig, ax = plt.subplots(figsize=(14, 4))
+                ax.plot(dates_chart, values_chart, color="#34a853", linewidth=2, marker='o')
+                ax.set_title("REMATCH — Средний онлайн по месяцам (SteamCharts)")
+                ax.set_ylabel("Средний онлайн")
+                plt.xticks(rotation=45)
+                plt.tight_layout()
+                fig.savefig(CHARTS / "05_steamcharts_monthly.png", dpi=120)
+                plt.close()
+                log(f"  График среднего онлайна по месяцам сохранен ({len(matches)} точек)")
+                matches = []  # skip duplicate chart below
         if matches:
             log(f"  Найдено {len(matches)} точек данных")
             dates_chart = [datetime.strptime(m[0], "%Y-%m") for m in matches]
