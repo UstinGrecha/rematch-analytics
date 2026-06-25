@@ -1,0 +1,73 @@
+
+==========================================================
+  REMATCH (AppID: 2138720) — DEEP ANALYTICS REPORT
+  Generated: 2026-06-24 17:38 UTC
+==========================================================
+
+1. OVERVIEW
+-----------
+  Total reviews analyzed:  49,735
+  Positive:                34,069 (68.5%)
+  Negative:                15,666 (31.5%)
+  Steam Purchases:         36,932
+  Free Copies:             2,728
+  Refunded:                410
+  Steam Deck:              227
+  Avg playtime:            111.2h (pos) / 103.5h (neg)
+  Median playtime:         54.9h (pos) / 52.9h (neg)
+
+2. A/B TEST RESULTS
+-------------------
+  ID    Metric                              Comparison                               Group A      Group B     Stat    p-value     Effect  Interpretation
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  A1    Playtime (min)                      Positive vs Negative                      6671.7       6209.0    4.494   0.000007     0.0417      negligible
+  A2    Positive rate                       Steam Purchase vs Free                     69.9%        69.8%    0.056   0.955224     0.0011      negligible
+  A3    Playtime (min)                      Refunded vs Not                            784.0       6573.7  -28.573   0.000000    -0.5224          medium
+  A4    Positive rate                       Steam Deck vs Non-Deck                     69.6%        68.5%    0.358   0.720039     0.0240      negligible
+  A5    Positive rate                       Recent vs Older                            71.6%        68.4%    2.718   0.006566     0.0694      negligible
+  A6    Positive rate                       English vs Non-English                     69.1%        68.1%    2.245   0.024786     0.0205      negligible
+  A7    Playtime at review (min)            Positive vs Negative                      2582.8       3999.5  -22.018   0.000000    -0.2265           small
+  A8    Language vs Sentiment               Chi-square                              50653.2%            0        0   0.999735     0.0401      Cramer's V
+  C1    Playtime vs Vote Score              Pearson r                                    0.0            0        0   0.000000     0.0480                
+  C2    Playtime vs Votes Up                Pearson r                                    0.0            0        0   0.066180     0.0082                
+  C3    Votes Up vs Vote Score              Pearson r                                    0.6            0        0   0.000000     0.5749                
+  C4    Playtime@Review vs Playtime         Pearson r                                    0.7            0        0   0.000000     0.7236                
+
+3. KEY INSIGHTS
+---------------
+  * Positive reviewers have SIGNIFICANTLY higher playtime (111.2h vs 103.5h).
+    Players who spend more time tend to leave positive reviews — the game gets better with playtime.
+  * English reviews are more positive (69.1%) than non-English (68.1%).
+    Potential localization or cultural gaps affect satisfaction.
+  * Steam Deck players are more satisfied (69.6% vs 68.5%).
+    Steam Deck optimization is good and enhances the experience.
+  * Recent reviews are more positive (71.6% vs 68.4%).
+    The game is improving over time with updates.
+  * 13,726 reviews written on weekends vs 36,009 on weekdays.
+    Weekend accounts for 27.6% of all reviews.
+  * 5 achievements unlocked by >80% of players (Assist_01, Match_FirstWin, Customization...).
+  * 1 achievements unlocked by <10% of players (Rematch_AllTrophies...).
+  * Only 4.5% of players have all achievements — low completion rate typical for live-service games.
+  * Most common GPU: NVIDIA GeForce RTX 5070 Ti (5.5% of reviewers).
+
+4. CHARTS GENERATED
+-------------------
+  - 01_playtime_distribution.png (49 KB)
+  - 02_sentiment_by_language.png (60 KB)
+  - 03_reviews_over_time.png (106 KB)
+  - 04_gpu_distribution.png (76 KB)
+  - 05_playtime_pos_vs_neg.png (37 KB)
+  - 06_achievements.png (89 KB)
+  - 07_ram_distribution.png (38 KB)
+  - 08_os_distribution.png (56 KB)
+  - 09_helpful_votes.png (41 KB)
+  - 10_reviews_by_dayofweek.png (46 KB)
+
+5. RECOMMENDATIONS
+------------------
+  * Improve early-game experience to retain players who quit before discovering the fun
+  * Continue monitoring weekly review volume for community health trends
+
+==========================================================
+  End of report — 49,735 reviews analyzed
+==========================================================

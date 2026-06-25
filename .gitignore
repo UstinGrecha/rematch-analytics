@@ -1,0 +1,9 @@
+# Steam API raw data (64 MB JSON — exceeds GitHub limit)
+rematch_export/
+
+# Full reviews CSV is too large (18 MB)
+rematch_analysis/01_reviews_full.csv
+
+# Python cache
+__pycache__/
+*.pyc
